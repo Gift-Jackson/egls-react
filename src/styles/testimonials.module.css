@@ -1,0 +1,26 @@
+.box{
+    padding: 2em 1em;
+    /* box-shadow: var(--shadow); */
+    border-radius: 1em;
+    background-color: var(--border);
+}
+.wrap{
+    padding: 1em;
+}
+.box i{
+    font-size: 3em;
+    padding-left: .5em;
+    color: var(--primary-color);
+}
+.box p{
+    font-size: small;
+}
+.box h3{
+    color: var(--primary-color);
+}
+.content, .role{
+    text-align: center;
+}
+.role{
+    margin-top: 1em;
+}

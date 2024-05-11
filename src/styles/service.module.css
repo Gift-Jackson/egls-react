@@ -1,0 +1,31 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1em;
+    list-style: none;
+}
+.box{
+    padding: 1em;
+    box-shadow: var(--shadow);
+    border-radius: 1em;
+}
+
+.content h3{
+    margin: .5em 0;
+}
+.content p{
+    font-size: small;
+}
+
+.icon{
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+.icon span{
+    color: var(--white);
+}
