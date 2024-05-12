@@ -1,14 +1,13 @@
-import Header from "../components/Header"
-import SearchBar from "../components/SearchBar"
+import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
 
 const Books = () => {
-    
   return (
-      <>
-          <Header />
+    <>
+      <Header />
       <SearchBar />
-      </>
-  )
-}
+    </>
+  );
+};
 
-export default Books
+export default Books;

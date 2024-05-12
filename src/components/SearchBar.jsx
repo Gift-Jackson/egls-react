@@ -3,25 +3,31 @@ import styles from "../styles/search.module.css";
 import axios from "axios";
 import Card from "./Card";
 import NoResult from "./NoResult";
+import PreLoader from "./PreLoader";
 
 const SearchBar = () => {
   const [searchInp, setSearchInp] = useState("");
+  const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
 
   const searchBook = () => {
-      axios
-        .get(
-          "https://www.googleapis.com/books/v1/volumes?q=" +
-            searchInp +
-            "&key=AIzaSyCTw5uPrpxqVdbBM23ygUr4_6lkXiP6fak" +
-            "&maxResults=40"
-        )
-        .then((res) => {
-          setResults(res.data.items);
-        })
-        .catch((error) => console.log(error));
+    setLoading(true);
+    axios
+      .get(
+        "https://www.googleapis.com/books/v1/volumes?q=" +
+          searchInp +
+          "&key=AIzaSyCTw5uPrpxqVdbBM23ygUr4_6lkXiP6fak" +
+          "&maxResults=40"
+      )
+      .then((res) => {
+        setResults(res.data.items);
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        setLoading(false);
+      });
 
-      console.log(searchInp);
+    console.log(searchInp);
   };
 
   return (
@@ -35,11 +41,12 @@ const SearchBar = () => {
           type="text"
           placeholder="Search by book title or author's name..."
         />
-
       </div>
 
       <div className="books-container">
-        {results.length === 0 ? (
+        {loading ? (
+          <PreLoader />
+        ) : results.length === 0 ? (
           <NoResult />
         ) : (
           <ul className={styles.wrapper}>

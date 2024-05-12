@@ -1,8 +1,15 @@
 import Title from "./Title";
 import styles from "../styles/feature.module.css";
 import bookCover from "../assets/Starting new sounds.jpg";
+import ViewFeatureBook from "./ViewFeatureBook";
+import { useState } from "react";
 
 const FeaturedBook = () => {
+  const [modal, setModal] = useState(false)
+  const toggleModal = () => {
+    setModal(!modal)
+  }
+
   return (
     <>
       <main>
@@ -37,13 +44,14 @@ const FeaturedBook = () => {
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star-half-stroke"></i>
               </div>
-              <button className={styles.btn}>
+              <button className={styles.btn} onClick={toggleModal}>
                 View Details &nbsp;{" "}
                 <i className="fa-solid fa-arrow-up-right-from-square"></i>
               </button>
             </div>
           </div>
         </div>
+        {modal && <ViewFeatureBook closeModal={toggleModal} />}
       </main>
     </>
   );

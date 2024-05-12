@@ -7,17 +7,20 @@ import Service from "../components/Service";
 import Testimonials from "../components/Testimonials";
 
 const Home = () => {
-  return (
-      <>
-          <Header />
-          <Hero />
-          <FeaturedBook/>
-          <Service />
-          <Testimonials />
-          <Newsletter />
-          <Footer/>
-      </>
-  )
-}
+  
 
-export default Home
+  return (
+    <>
+      
+      <Header />
+      <Hero />
+      <FeaturedBook />
+      <Service />
+      <Testimonials />
+      <Newsletter />
+      <Footer />
+    </>
+  );
+};
+
+export default Home;
