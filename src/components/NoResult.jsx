@@ -5,7 +5,7 @@ const NoResult = () => {
       <>
           <div className={styles.wrapper}>
               <div className={styles.wrap}>
-                  <img src={svg} height={200}/>
+                  <img src={svg} height={250}/>
               </div>
               <p>No search result yet!</p>
       </div>

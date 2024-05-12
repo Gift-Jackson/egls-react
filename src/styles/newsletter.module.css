@@ -42,8 +42,12 @@
     .form input{
         padding: 1em;
         padding-left: 1.25em;
-        flex: 1;
-        border: 0;
+    }
+    .form{
+        flex-direction: column;
+        border-radius: unset;
+        overflow: unset;
+        gap: .5em;
     }
     .btn{
         padding: 1em;
