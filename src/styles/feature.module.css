@@ -68,4 +68,13 @@
         flex-direction: column;
         gap: 5em;
     }
+    .container>div{
+        flex:unset;
+        width: 100%;
+        text-align: center;
+    }
+    .circle{
+        width: 300px;
+        height: 300px;
+    }
 }

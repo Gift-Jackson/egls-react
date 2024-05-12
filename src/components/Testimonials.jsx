@@ -34,14 +34,14 @@ const Testimonials = () => {
           {testimonials.map((testimony, index) => (
             <div key={index} className={styles.wrap}>
               <div className={styles.box}>
-                  <i className="fa-solid fa-quote-left"></i>
-                  <div className={styles.content}>
-                    <p>{testimony.content}</p>
-                  </div>
-                  <div className={styles.role}>
-                    <h3>{testimony.name}</h3>
-                    <p>{testimony.role}</p>
-                  </div>
+                <i className="fa-solid fa-quote-left"></i>
+                <div className={styles.content}>
+                  <p>{testimony.content}</p>
+                </div>
+                <div className={styles.role}>
+                  <h3>{testimony.name}</h3>
+                  <p>{testimony.role}</p>
+                </div>
               </div>
             </div>
           ))}

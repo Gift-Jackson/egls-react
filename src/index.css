@@ -5,6 +5,7 @@
   padding: 0;
   outline: none;
   text-decoration: none;
+  list-style: none;
   box-sizing: border-box;
   color: var(--text-color);
   font-family: var(--font-1);
@@ -71,10 +72,12 @@ html {
 body {
   max-width: 1536px;
   margin: auto;
+  position: relative;
 }
 
 button {
   border: 0;
+  cursor: pointer;
 }
 
 button i {
@@ -94,16 +97,39 @@ button i {
   font-weight: bold;
 }
 
-@media screen and (max-width:1530px) {
+#mobile-nav .nav-link:hover,
+#mobile-nav .nav-link.nav-link.active{
+  background-color: var(--border);
+}
+
+#header.fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 1.4em;
+}
+
+@media screen and (max-width:1536px) {
   main {
-    max-width: 100%;
+    width: 90%;
     margin: 0 auto 3em;
     padding-bottom: 100px;
+  }
+  #header{
+    width: 90%;
+  }
+  body{
+    width: 100%;
+  }
+  .books-container{
+    width: 90%;
+    margin: 2em auto;
   }
 }
 
 main {
-  max-width: 90%;
+  max-width: 1536px;
   margin: 0 auto 3em;
   padding-bottom: 50px;
 }

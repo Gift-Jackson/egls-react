@@ -1,6 +1,6 @@
 import { services } from "../constants/content";
 import Title from "./Title";
-import styles from "../styles/service.module.css"
+import styles from "../styles/service.module.css";
 
 const Service = () => {
   return (

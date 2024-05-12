@@ -12,6 +12,8 @@
 
 .container {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 2em;
     min-height: calc(100dvh - 100px);
 }
@@ -43,5 +45,12 @@
     .container{
         flex-direction: column-reverse;
         gap: 1em;
+       min-height: auto;
     }
+    .container>div{
+        flex:unset;
+        width: 100%;
+        text-align: center;
+    }
+
 }

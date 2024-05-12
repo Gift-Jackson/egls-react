@@ -73,6 +73,7 @@
     }
     .info, .text{
         text-align: left;
-        padding-left: 3em;
+        padding: 3em;
+        text-align: justify;
     }
 }

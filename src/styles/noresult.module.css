@@ -1,0 +1,9 @@
+.wrapper{
+    text-align: center;
+    margin: auto;
+}
+
+.wrapper p{
+    color: var(--grey);
+    margin-top: 1em;
+}

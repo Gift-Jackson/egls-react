@@ -4,17 +4,14 @@
     align-items: center;
     height: 80px;
     margin: auto;
-    max-width: 90%;
+    max-width: 1536px;
+    background-color: var(--bg-color);
 }
 
-@media screen and (max-width:1280px) {
-    .header {
-        padding: 0 1em;
-    }
 
-    /* main {
-        max-width: 94vw;
-        margin: auto;
+@media screen and (max-width:1536px) {
+    /* .header {
+        width: 90%;
     } */
 }
 
@@ -56,12 +53,6 @@
     align-items: center;
 }
 
-@media screen and (max-width:1280px) {
-    .header {
-        max-width: 100%;
-    }
-}
-
 @media screen and (max-width:850px) {
     .nav{
         gap: 1em;
@@ -71,8 +62,5 @@
     }
     .menu_btn{
         display: flex;
-    }
-    .header {
-        padding: 0 .5em;
     }
 }
