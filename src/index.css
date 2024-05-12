@@ -83,6 +83,9 @@ button {
 button i {
   color: inherit;
 }
+button span {
+  color: inherit;
+}
 
 .nav-link {
   color: var(--grey);

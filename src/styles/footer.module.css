@@ -55,14 +55,20 @@
     font-size: small;
 }
 .info{
-    padding: 1em;
+    padding: 0 1em;
     text-align: center;
     font-size: small;
     color: var(--white);
     letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
 }
 .info span, .info span i, .info span a{
     color: inherit;
+}
+.info span{
+border-bottom: 1px solid var(--border-color);
+padding-bottom: 1em;
 }
 
 @media screen and (max-width:850px) {

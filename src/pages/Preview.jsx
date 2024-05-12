@@ -1,7 +1,12 @@
+import Header from "../components/Header"
+import PreviewWrap from "../components/PreviewWrap"
 
 const Preview = () => {
   return (
-    <div>Preview</div>
+      <>
+          <Header />
+          <PreviewWrap/>
+      </>
   )
 }
 

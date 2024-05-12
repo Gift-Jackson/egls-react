@@ -44,14 +44,14 @@ const Footer = () => {
           <i className="fa-solid fa-location-dot"></i> Address is suite 6 & 9,
           Henry plaza on New Road Rumuewhara, off Eneka-igwuruta road Port
           Harcourt.
-        </span>
+        </span> <br />
         &nbsp;
         <span>
           <a href="mailto:exceedingglory@gmail.com">
             <i className="fa-solid fa-envelope"></i>
             &nbsp;exceedinggloryls@gmail.com.
           </a>
-        </span>
+        </span> <br />
         &nbsp;
         <span>
           <a href="tel:08171471380">
