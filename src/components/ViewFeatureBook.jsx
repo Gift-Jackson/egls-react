@@ -6,7 +6,7 @@ const ViewFeatureBook = ({closeModal}) => {
   return (
     <>
       <div className={styles.modal}>
-        <div className={styles.overlay}></div>
+        <div className={styles.overlay} onClick={closeModal}></div>
         <div className={styles.box}>
           <div className={styles.header}>
             <h3>Inquiry Form</h3>
