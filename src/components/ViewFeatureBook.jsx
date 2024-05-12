@@ -1,10 +1,57 @@
 import styles from "../styles/feature.module.css";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import { useState } from "react";
+import axios from "axios";
+import { Toaster, toast } from "sonner";
 
+const ViewFeatureBook = ({ closeModal }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-const ViewFeatureBook = ({closeModal}) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    axios
+      .post("https://formsubmit.co/ajax/giftjacksun@gmail.com", {
+        ...formData,
+        bookTitle: "Starting Letter Sounds", // Hardcoded value for book title
+      })
+      .then((response) => {
+        console.log(response);
+        toast.success("Form Submitted Successfully!");
+        // Clear form fields after successful submission
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+        // Close the modal
+          setTimeout(() => {
+            closeModal();
+       }, 3000)
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("An Error Occurred!", error);
+      })
+      .finally(() => setLoading(false));
+  };
+
   return (
     <>
+      <Toaster position="top-center" richColors />
       <div className={styles.modal}>
         <div className={styles.overlay} onClick={closeModal}></div>
         <div className={styles.box}>
@@ -16,13 +63,15 @@ const ViewFeatureBook = ({closeModal}) => {
           </div>
 
           <div>
-            <form action="" className={styles.form}>
+            <form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.input_grp}>
                 <label htmlFor="name">Full Name:</label>
                 <input
                   type="text"
                   name="name"
                   id="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your Full Name..."
                   required
                 />
@@ -33,6 +82,8 @@ const ViewFeatureBook = ({closeModal}) => {
                   type="email"
                   name="email"
                   id="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="example@domain.com"
                   required
                 />
@@ -42,7 +93,7 @@ const ViewFeatureBook = ({closeModal}) => {
                 <input
                   value="Starting Letter Sounds"
                   type="text"
-                  name="book-title"
+                  name="bookTitle"
                   id="bookTitleInput"
                   required
                   readOnly
@@ -53,13 +104,15 @@ const ViewFeatureBook = ({closeModal}) => {
                 <textarea
                   name="message"
                   id="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   cols="30"
                   rows="5"
                   placeholder="e.g I'm interested in this book, I would love to purchase it..."
                 ></textarea>
               </div>
-              <button type="submit" className={styles.btn}>
-                Send
+              <button type="submit" className={styles.btn} disabled={loading}>
+                {loading ? "Sending..." : "Send"}
               </button>
             </form>
           </div>
@@ -70,7 +123,7 @@ const ViewFeatureBook = ({closeModal}) => {
 };
 
 ViewFeatureBook.propTypes = {
-    closeModal: PropTypes.string,
-}
+  closeModal: PropTypes.func,
+};
 
 export default ViewFeatureBook;

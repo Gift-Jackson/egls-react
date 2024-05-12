@@ -1,9 +1,57 @@
 import styles from "../styles/form.module.css";
 import PropTypes from "prop-types";
+import axios from "axios";
+import { useState } from "react";
+import { Toaster, toast } from "sonner";
+import PreLoader from "./PreLoader";
+
 const BookForm = ({ title, authors, toggleForm }) => {
+  const [loading, setLoading] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    axios
+      .post("https://formsubmit.co/ajax/giftjacksun@gmail.com", {
+        ...formData,
+        bookTitle: title,
+        bookAuthor: authors,
+      })
+      .then((response) => {
+        console.log(response);
+        toast.success("Form Submitted Successfully!");
+        // Clear form fields after successful submission
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("An Error Ocureed!", error);
+      })
+      .finally(() => setLoading(false));
+  };
+
   return (
     <>
+      <Toaster position="top-center" richColors />
       <div className={styles.container}>
+        {loading && <PreLoader />}
         <div className={styles.header}>
           <h3>Inquiry Form</h3>
           <div>
@@ -12,13 +60,18 @@ const BookForm = ({ title, authors, toggleForm }) => {
             </button>
           </div>
         </div>
-        <form action="" className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_subject" value="Book Inquiry" />
+
           <div className={styles.input_grp}>
             <label htmlFor="name">Full Name:</label>
             <input
               type="text"
               name="name"
               id="name"
+              value={formData.name}
+              onChange={handleChange}
               placeholder="Your Full Name..."
               required
             />
@@ -29,6 +82,8 @@ const BookForm = ({ title, authors, toggleForm }) => {
               type="email"
               name="email"
               id="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="example@domain.com"
               required
             />
@@ -38,7 +93,7 @@ const BookForm = ({ title, authors, toggleForm }) => {
             <input
               value={title}
               type="text"
-              name="book-title"
+              name="bookTitle"
               id="bookTitleInput"
               required
               readOnly
@@ -49,7 +104,7 @@ const BookForm = ({ title, authors, toggleForm }) => {
             <input
               value={authors}
               type="text"
-              name="book-author"
+              name="bookAuthor"
               id="bookAuthorInput"
               required
               readOnly
@@ -62,10 +117,14 @@ const BookForm = ({ title, authors, toggleForm }) => {
               id="message"
               cols="30"
               rows="5"
+              value={formData.message}
+              onChange={handleChange}
               placeholder="e.g I'm interested in this book, may I inquire the Price..."
             ></textarea>
           </div>
-          <button type="submit" className={styles.btn}>Send</button>
+          <button type="submit" className={styles.btn}>
+            Send
+          </button>
         </form>
       </div>
     </>
@@ -75,7 +134,7 @@ const BookForm = ({ title, authors, toggleForm }) => {
 BookForm.propTypes = {
   title: PropTypes.string,
   authors: PropTypes.string,
-  toggleForm: PropTypes.string,
+  toggleForm: PropTypes.func,
 };
 
 export default BookForm;
