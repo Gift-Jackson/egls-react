@@ -2,7 +2,7 @@ import styles from "../styles/form.module.css";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { useState } from "react";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import PreLoader from "./PreLoader";
 
 const BookForm = ({ title, authors, toggleForm }) => {
@@ -49,7 +49,7 @@ const BookForm = ({ title, authors, toggleForm }) => {
 
   return (
     <>
-      <Toaster position="top-center" richColors />
+     
       <div className={styles.container}>
         {loading && <PreLoader />}
         <div className={styles.header}>
@@ -123,7 +123,7 @@ const BookForm = ({ title, authors, toggleForm }) => {
             ></textarea>
           </div>
           <button type="submit" className={styles.btn}>
-            Send
+          {loading ? "Sending..." : "Send"}
           </button>
         </form>
       </div>

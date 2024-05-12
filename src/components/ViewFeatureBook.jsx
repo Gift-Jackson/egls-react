@@ -2,7 +2,7 @@ import styles from "../styles/feature.module.css";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import axios from "axios";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 
 const ViewFeatureBook = ({ closeModal }) => {
   const [formData, setFormData] = useState({
@@ -37,10 +37,8 @@ const ViewFeatureBook = ({ closeModal }) => {
           email: "",
           message: "",
         });
-        // Close the modal
-          setTimeout(() => {
-            closeModal();
-       }, 3000)
+          // Close the modal
+          closeModal();
       })
       .catch((error) => {
         console.log(error);
@@ -51,7 +49,6 @@ const ViewFeatureBook = ({ closeModal }) => {
 
   return (
     <>
-      <Toaster position="top-center" richColors />
       <div className={styles.modal}>
         <div className={styles.overlay} onClick={closeModal}></div>
         <div className={styles.box}>
