@@ -8,8 +8,7 @@ const SearchBar = () => {
   const [searchInp, setSearchInp] = useState("");
   const [results, setResults] = useState([]);
 
-  const searchBook = (e) => {
-    if (e.key === "Enter") {
+  const searchBook = () => {
       axios
         .get(
           "https://www.googleapis.com/books/v1/volumes?q=" +
@@ -23,7 +22,6 @@ const SearchBar = () => {
         .catch((error) => console.log(error));
 
       console.log(searchInp);
-    }
   };
 
   return (
@@ -33,10 +31,11 @@ const SearchBar = () => {
         <input
           value={searchInp}
           onChange={(e) => setSearchInp(e.target.value)}
-          onKeyDown={searchBook}
+          onInput={searchBook}
           type="text"
           placeholder="Search by book title or author's name..."
         />
+
       </div>
 
       <div className="books-container">
