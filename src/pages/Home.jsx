@@ -1,4 +1,3 @@
-import { Toaster } from "sonner";
 import FeaturedBook from "../components/FeaturedBook";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -12,7 +11,6 @@ const Home = () => {
 
   return (
     <>
-      <Toaster position="top-center" richColors/>
       <Header />
       <Hero />
       <FeaturedBook />

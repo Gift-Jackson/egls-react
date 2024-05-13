@@ -4,6 +4,7 @@ import axios from "axios";
 import Card from "./Card";
 import NoResult from "./NoResult";
 import PreLoader from "./PreLoader";
+import { toast } from "sonner";
 
 const SearchBar = () => {
   const [searchInp, setSearchInp] = useState("");
@@ -22,7 +23,10 @@ const SearchBar = () => {
       .then((res) => {
         setResults(res.data.items);
       })
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        console.log(error)
+        toast.error(`${error.message}`)
+      })
       .finally(() => {
         setLoading(false);
       });

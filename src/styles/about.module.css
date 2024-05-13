@@ -1,0 +1,18 @@
+.btn{
+    margin: 2em auto;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1.25em 3em;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+}
+article{
+    font-size: small;
+    text-align: justify;
+}
+
+.content{
+    width: min(100%, 600px);
+    margin: auto;
+}

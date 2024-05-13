@@ -1,18 +1,17 @@
-import styles from "../styles/form.module.css";
-import PropTypes from "prop-types";
+import Title from "./Title";
+import styles from "../styles/contacts.module.css";
 import axios from "axios";
 import { useState } from "react";
-import PreLoader from "./PreLoader";
 import toast from "react-hot-toast";
 
-const BookForm = ({ title, authors, toggleForm }) => {
-  const [loading, setLoading] = useState(false);
-
+const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -27,12 +26,11 @@ const BookForm = ({ title, authors, toggleForm }) => {
     axios
       .post("https://formsubmit.co/ajax/exceedinggloryls@gmail.com", {
         ...formData,
-        bookTitle: title,
-        bookAuthor: authors,
+        bookTitle: "Starting Letter Sounds", // Hardcoded value for book title
       })
       .then((response) => {
         console.log(response);
-        toast.success("Form Submitted Successfully!");
+        toast.success("Form submitted successfully!");
         // Clear form fields after successful submission
         setFormData({
           name: "",
@@ -49,21 +47,13 @@ const BookForm = ({ title, authors, toggleForm }) => {
 
   return (
     <>
-     
-      <div className={styles.container}>
-        {loading && <PreLoader />}
-        <div className={styles.header}>
-          <h3>Inquiry Form</h3>
-          <div>
-            <button className={styles.close_btn} onClick={toggleForm}>
-              <span className="material-symbols-outlined">close</span>
-            </button>
-          </div>
-        </div>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_subject" value="Book Inquiry" />
+      <main>
+        <Title
+          title="Contact Us"
+          subtitle="For support or acquaintances, fill and submit the form"
+        />
 
+        <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.input_grp}>
             <label htmlFor="name">Full Name:</label>
             <input
@@ -89,52 +79,24 @@ const BookForm = ({ title, authors, toggleForm }) => {
             />
           </div>
           <div className={styles.input_grp}>
-            <label htmlFor="book-title">Book Title:</label>
-            <input
-              value={title}
-              type="text"
-              name="bookTitle"
-              id="bookTitleInput"
-              required
-              readOnly
-            />
-          </div>
-          <div className={styles.input_grp}>
-            <label htmlFor="book-author">Book Author:</label>
-            <input
-              value={authors}
-              type="text"
-              name="bookAuthor"
-              id="bookAuthorInput"
-              required
-              readOnly
-            />
-          </div>
-          <div className={styles.input_grp}>
             <label htmlFor="message">Message:</label>
             <textarea
               name="message"
               id="message"
-              cols="30"
-              rows="5"
               value={formData.message}
               onChange={handleChange}
-              placeholder="e.g I'm interested in this book, may I inquire the Price..."
+              cols="30"
+              rows="5"
+              placeholder="Your Query..."
             ></textarea>
           </div>
-          <button type="submit" className={styles.btn}>
-          {loading ? "Sending..." : "Send"}
+          <button type="submit" className={styles.btn} disabled={loading}>
+            {loading ? "Sending..." : "Send"}
           </button>
         </form>
-      </div>
+      </main>
     </>
   );
 };
 
-BookForm.propTypes = {
-  title: PropTypes.string,
-  authors: PropTypes.string,
-  toggleForm: PropTypes.func,
-};
-
-export default BookForm;
+export default ContactForm;

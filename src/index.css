@@ -136,3 +136,16 @@ main {
   margin: 0 auto 3em;
   padding-bottom: 50px;
 }
+.not-found{
+  text-align: center;
+  margin-top: 3em;
+}
+.not-found p{
+  text-align: center;
+  margin-top: 2em;
+  font-size: small;
+}
+.mark{
+  color: var(--primary-color);
+  font-weight: bold;
+}

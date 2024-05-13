@@ -1,11 +1,11 @@
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 import styles from '../styles/newsletter.module.css'
 
 const Newsletter = () => {
   const notify = (e) => {
     e.preventDefault();
 
-    toast.warning('Newsletter not available yet!')
+    toast.error('Newsletter not available yet!')
   };
   return (
       <div className={styles.container}>

@@ -1,4 +1,4 @@
-import svg from '../assets/no-result.svg'
+import svg from '../assets/search.svg'
 import styles from '../styles/noresult.module.css'
 const NoResult = () => {
   return (
@@ -7,7 +7,7 @@ const NoResult = () => {
               <div className={styles.wrap}>
                   <img src={svg} height={250}/>
               </div>
-              <p>No search result yet!</p>
+              <p>Waiting for search!</p>
       </div>
       </>
   )

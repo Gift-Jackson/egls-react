@@ -24,13 +24,13 @@ const ViewFeatureBook = ({ closeModal }) => {
     e.preventDefault();
     setLoading(true);
     axios
-      .post("https://formsubmit.co/ajax/giftjacksun@gmail.com", {
+      .post("https://formsubmit.co/ajax/exceedinggloryls@gmail.com", {
         ...formData,
         bookTitle: "Starting Letter Sounds", // Hardcoded value for book title
       })
       .then((response) => {
         console.log(response);
-        toast.success("Form Submitted Successfully!");
+        toast.success(`Form submitted successfully!`);
         // Clear form fields after successful submission
         setFormData({
           name: "",
@@ -42,7 +42,7 @@ const ViewFeatureBook = ({ closeModal }) => {
       })
       .catch((error) => {
         console.log(error);
-        toast.error("An Error Occurred!", error);
+        toast.error(error.message);
       })
       .finally(() => setLoading(false));
   };

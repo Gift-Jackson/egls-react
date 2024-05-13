@@ -1,0 +1,42 @@
+.form{
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    width: min(100%, 480px);
+    margin: auto;
+}
+.input_grp{
+    display: flex;
+    gap: .3em;
+    flex-direction: column;
+}
+.input_grp label{
+    font-size: small;
+}
+.input_grp input{
+    padding: 1em 2em;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    background-color: var(--border);
+}
+
+.input_grp textarea{
+    border: 1px solid var(--border-color);
+    background-color: var(--border);
+    padding: 1em;
+    padding-left: 2em;
+    padding-top: 1.5em;
+    border-radius: 1em;
+}
+.input_grp input:focus,
+.input_grp textarea:focus{
+    border-color: var(--grey);
+}
+.btn{
+    margin-top: 1em;
+    border-radius: 50px;
+    padding: 1em;
+    background-color: var(--primary-color);
+    font-size: 1em;
+    color: var(--white);
+}
