@@ -1,13 +1,16 @@
-import Header from "../components/Header"
-import PreviewWrap from "../components/PreviewWrap"
+import Header from "../components/Header";
+import PageTransition from "../components/PageTransition";
+import PreviewWrap from "../components/PreviewWrap";
 
 const Preview = () => {
   return (
-      <>
-          <Header />
-          <PreviewWrap/>
-      </>
-  )
-}
+    <>
+      <Header />
+      <PageTransition>
+        <PreviewWrap />
+      </PageTransition>
+    </>
+  );
+};
 
-export default Preview
+export default Preview;

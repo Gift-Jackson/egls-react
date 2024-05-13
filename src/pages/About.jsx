@@ -1,15 +1,19 @@
-import AboutWrapper from "../components/AboutWrapper"
-import Footer from "../components/Footer"
-import Header from "../components/Header"
+import AboutWrapper from "../components/AboutWrapper";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import PageTransition from "../components/PageTransition";
 
 const About = () => {
   return (
-      <>
-          <Header />
-          <AboutWrapper/>
-          <Footer/>
-      </>
-  )
-}
+    <>
+      <Header />
+      <PageTransition>
+        <AboutWrapper />
+      </PageTransition>
 
-export default About
+      <Footer />
+    </>
+  );
+};
+
+export default About;

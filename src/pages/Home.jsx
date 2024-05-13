@@ -5,18 +5,19 @@ import Hero from "../components/Hero";
 import Newsletter from "../components/Newsletter";
 import Service from "../components/Service";
 import Testimonials from "../components/Testimonials";
+import PageTransition from "../components/PageTransition";
 
 const Home = () => {
-  
-
   return (
     <>
       <Header />
-      <Hero />
-      <FeaturedBook />
-      <Service />
-      <Testimonials />
-      <Newsletter />
+      <PageTransition>
+        <Hero />
+        <FeaturedBook />
+        <Service />
+        <Testimonials />
+        <Newsletter />
+      </PageTransition>
       <Footer />
     </>
   );

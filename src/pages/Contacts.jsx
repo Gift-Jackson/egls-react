@@ -1,16 +1,18 @@
-import ContactForm from "../components/ContactForm"
-import Footer from "../components/Footer"
-import Header from "../components/Header"
+import ContactForm from "../components/ContactForm";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import PageTransition from "../components/PageTransition";
 
 const Contacts = () => {
   return (
-      <>
-          <Header />
-          <ContactForm/>
-          <Footer/>
-      
-      </>
-  )
-}
+    <>
+      <Header />
+      <PageTransition>
+        <ContactForm />
+      </PageTransition>
+      <Footer />
+    </>
+  );
+};
 
-export default Contacts
+export default Contacts;
