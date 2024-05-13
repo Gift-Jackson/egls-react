@@ -2,7 +2,7 @@ import styles from "../styles/form.module.css";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { useState } from "react";
-import { toast } from "sonner";
+import toast from "react-hot-toast";
 import PreLoader from "./PreLoader";
 
 const BookForm = ({ title, authors, toggleForm }) => {

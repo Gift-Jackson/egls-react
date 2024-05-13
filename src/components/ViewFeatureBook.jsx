@@ -2,7 +2,7 @@ import styles from "../styles/feature.module.css";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import axios from "axios";
-import { toast } from "sonner";
+import toast from "react-hot-toast";
 
 const ViewFeatureBook = ({ closeModal }) => {
   const [formData, setFormData] = useState({
