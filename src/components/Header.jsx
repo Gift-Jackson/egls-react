@@ -3,32 +3,31 @@ import headerLogo from "../assets/logo.png";
 import styles from "../styles/header.module.css";
 import Mobilenav from "./Mobilenav";
 import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 const Header = () => {
   const isNotBooksPage = location.pathname !== "/books";
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   useEffect(() => {
     if (!isMenuOpen) {
-      document.getElementById("header").classList.remove("fixed")
+      document.getElementById("header").classList.remove("fixed");
+    } else {
+      document.getElementById("header").classList.add("fixed");
     }
-    else {
-      document.getElementById("header").classList.add("fixed")
-    }
-  }, [isMenuOpen])
-
+  }, [isMenuOpen]);
 
   return (
     <>
       <header id="header" className={styles.header}>
         <Link to="/">
-        <div className={styles.brand}>
-          <img src={headerLogo} alt="" height={40} />
-          <h2>EGLS</h2>
-        </div>
+          <div className={styles.brand}>
+            <img src={headerLogo} alt="" height={40} />
+            <h2>EGLS</h2>
+          </div>
         </Link>
 
         <nav className={styles.nav}>
@@ -64,12 +63,15 @@ const Header = () => {
           )}
 
           <button onClick={toggleMenu} className={styles.menu_btn}>
-            <span className="material-symbols-outlined">{!isMenuOpen? "menu" : "close"}</span>
+            <span className="material-symbols-outlined">
+              {!isMenuOpen ? "menu" : "close"}
+            </span>
           </button>
         </nav>
       </header>
-
-      {isMenuOpen && <Mobilenav/>}
+      <AnimatePresence>
+        {isMenuOpen && <Mobilenav closeMenu={toggleMenu} />}
+      </AnimatePresence>
     </>
   );
 };
