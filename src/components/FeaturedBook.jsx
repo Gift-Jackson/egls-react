@@ -3,12 +3,13 @@ import styles from "../styles/feature.module.css";
 import bookCover from "../assets/Starting new sounds.jpg";
 import ViewFeatureBook from "./ViewFeatureBook";
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const FeaturedBook = () => {
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false);
   const toggleModal = () => {
-    setModal(!modal)
-  }
+    setModal(!modal);
+  };
 
   return (
     <>
@@ -51,7 +52,9 @@ const FeaturedBook = () => {
             </div>
           </div>
         </div>
-        {modal && <ViewFeatureBook closeModal={toggleModal} />}
+        <AnimatePresence>
+          {modal && <ViewFeatureBook closeModal={toggleModal} />}
+        </AnimatePresence>
       </main>
     </>
   );

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { AnimatePresence, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 
 const ViewFeatureBook = ({ closeModal }) => {
   const [formData, setFormData] = useState({
@@ -51,13 +51,13 @@ const ViewFeatureBook = ({ closeModal }) => {
   const modalVars = {
     initial: {
       scale: 0,
-      y: 10,
+      y: 20,
     },
     animate: {
       scale: 1,
       y: 0,
-      transition: {
-        delay: 0.2
+      transition:{
+        delay:0.2,
       }
     },
     exit: {
@@ -71,12 +71,12 @@ const ViewFeatureBook = ({ closeModal }) => {
     <>
       <div className={styles.modal}>
         <div className={styles.overlay} onClick={closeModal}></div>
-        <AnimatePresence>
           <motion.div
             variants={modalVars}
             initial="initial"
             animate="animate"
-            exit="exit"
+          exit="exit"
+          
             className={styles.box}
           >
             <div className={styles.header}>
@@ -141,7 +141,6 @@ const ViewFeatureBook = ({ closeModal }) => {
               </form>
             </div>
           </motion.div>
-        </AnimatePresence>
       </div>
     </>
   );
